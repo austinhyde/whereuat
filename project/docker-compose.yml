@@ -2,13 +2,16 @@ version: '2'
 
 services:
   db:
-    image: mdillon/postgis
+    build: ./postgres
     environment:
       POSTGRES_DB: whereuat
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: secret
 
-      WHEREUAT_USERREG_PASS: userregpassword
-      WHEREUAT_APP_PASS: apppassword
+      WHEREUAT_USERREG_PASS: userreg_secret
+      WHEREUAT_APP_PASS: app_secret
     volumes:
-      - ./db:/docker-entrypoint-initdb.d
+      - ./tests:/db/test
+      - ./schema:/db/schema
+      - ./postgres/test.sh:/test.sh
+      - ./postgres/build.sh:/build.sh

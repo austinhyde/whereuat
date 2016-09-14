@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+
+run() {
+  echo docker-compose exec db "$@"
+  exec docker-compose exec db "$@"
+}
+
+case "$1" in
+  start) exec docker-compose up -d ;;
+  stop) exec docker-compose stop ;;
+  rm) exec docker-compose down ;;
+
+  rebuild) run /build.sh ;;
+  test) run /test.sh ;;
+  watch) run sh -c 'cd /db && rerun /build_and_test.sh' ;;
+  *) run "$@" ;;
+esac
