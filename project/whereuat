@@ -14,5 +14,6 @@ case "$1" in
   rebuild) run /build.sh ;;
   test) run /test.sh ;;
   watch) run sh -c 'cd /db && rerun /build_and_test.sh' ;;
+  psql) run psql whereuat admin ;;
   *) run "$@" ;;
 esac
