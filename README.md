@@ -1,6 +1,6 @@
 # Where-U-At
 
-[Slides from the talk](https://docs.google.com/presentation/d/1b4Eq61_AaPH-0je0MyfWoqwWFEbvGPfaDmAXn6w5juo/edit#slide=id.g135fd5eb2b_0_218)
+[Slides from the talk](https://docs.google.com/presentation/d/1b4Eq61_AaPH-0je0MyfWoqwWFEbvGPfaDmAXn6w5juo/edit?usp=sharing)
 
 This is the database schema for a simple application intended to highlight some new (and some old) Postgres features:
 
