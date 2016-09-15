@@ -1,5 +1,7 @@
 # Where-U-At
 
+[Slides from the talk](https://docs.google.com/presentation/d/1b4Eq61_AaPH-0je0MyfWoqwWFEbvGPfaDmAXn6w5juo/edit#slide=id.g135fd5eb2b_0_218)
+
 This is the database schema for a simple application intended to highlight some new (and some old) Postgres features:
 
 * PostGIS
@@ -18,12 +20,14 @@ The app itself is a "social" location-sharing application. Users can:
 This project utilizes Docker to streamline a local development deployment. Docker is not required to run this,
 but that's what I'm documenting here.
 
-1. Build the images: `docker-compose build`
-2. Launch postgres, make sure it's good: `docker-compose up -d db && docker-compose logs` (^C when satisfied)
-3. Run unit tests: `docker-compose run --rm test`
+I made a simple `scripts` script to help out with things:
 
-
-# Developing
-
-1. Launch postgres as above
-2. Run unit tests by watching the tests directory: `docker-compose run --rm test watch -h db -p 5432 -u admin -w secret -d whereuat -t '/test/*.sql'`
+* Build the docker image: `./scripts build-image`
+* Start the server: `./scripts start`
+* Stop the server: `./scripts stop`
+* Remove the server container: `./scripts rm`
+* Build the database schema `./scripts rebuild`
+* Run unit tests: `./scripts test`
+* Open a psql shell: `./scripts psql`
+* Rebuild the schema and rerun tests when a file changes: `./scripts watch`
+* Run arbitrary commands on the server: `./scripts exec`
